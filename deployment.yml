@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: second-app-deployment
+  labels:
+    first: nikhil
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      dapp: master-app
+      tier: backend
+  template:
+    metadata: 
+      labels:
+        dapp: master-app
+        tier: backend
+    spec: 
+      containers:
+        - name: second-node
+          image: csclassesnikhil/first-spring-hub-app:v1
+        # - name: ...
+        #   image: ...

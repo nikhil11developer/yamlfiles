@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: story-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: story
+      tier: backend
+  template:
+    metadata: 
+      labels:
+        app: story
+        tier: backend
+    spec: 
+      containers:
+        - name: story-container
+          image: kubernetes-volumes
+        # - name: ...
+        #   image: ...
